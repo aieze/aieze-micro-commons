@@ -1,7 +1,7 @@
 let mysql = require('mysql');
 let config = require('../config/db');
 
-const redis = require('../config/redis');
+const redis = require('./redis');
 const expiretime = 60 * 60 * 3;
 
 var read_connection = mysql.createPool({
