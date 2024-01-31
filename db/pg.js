@@ -1,6 +1,6 @@
 const pg = require('pg');
 const fs = require('fs');
-const PG_TIMEOUT = process.env.VC_PG_TIMEOUT ? parseInt(process.env.VC_PG_TIMEOUT) : 10000;
+const PG_TIMEOUT = process.env.AIEZE_PG_TIMEOUT ? parseInt(process.env.AIEZE_PG_TIMEOUT) : 10000;
 const params = {
     "user": process.env.VC_MASTER_USER,
     "database": process.env.VC_MASTER_DATABASE,

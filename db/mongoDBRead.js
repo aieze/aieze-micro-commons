@@ -1,12 +1,12 @@
 const { MongoClient } = require('mongodb')
-const user = process.env.VC_NOSQL_USER;
-const database = process.env.VC_NOSQL_DATABASE;
-const auth_database = process.env.VC_NOSQL_AUTH_DATABASE ? process.env.VC_NOSQL_AUTH_DATABASE : database;
-const password = process.env.VC_NOSQL_PASSWORD;
-const host = process.env.VC_NOSQL_HOST;
-const port = process.env.VC_NOSQL_PORT;
-const tls = process.env.VC_NOSQL_TLS ? process.env.VC_NOSQL_TLS : false;
-const connectionRequired = process.env.VC_NOSQL_DB_REQUIRED
+const user = process.env.AIEZE_NOSQL_USER;
+const database = process.env.AIEZE_NOSQL_DATABASE;
+const auth_database = process.env.AIEZE_NOSQL_AUTH_DATABASE ? process.env.AIEZE_NOSQL_AUTH_DATABASE : database;
+const password = process.env.AIEZE_NOSQL_PASSWORD;
+const host = process.env.AIEZE_NOSQL_HOST;
+const port = process.env.AIEZE_NOSQL_PORT;
+const tls = process.env.AIEZE_NOSQL_TLS ? process.env.AIEZE_NOSQL_TLS : false;
+const connectionRequired = process.env.AIEZE_NOSQL_DB_REQUIRED
 
 let url = ""
 
