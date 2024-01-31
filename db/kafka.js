@@ -1,16 +1,16 @@
 const { Kafka } = require('kafkajs');
 
 const kafka = new Kafka({
-    clientId: process.env.AIEZE_KAFKA_CLIENT_ID,
-    brokers: process.env.AIEZE_KAFKA_BROKERS.split(",")
+    clientId: process.env.AIEZE_COMMON_KAFKA_CLIENT_ID,
+    brokers: process.env.AIEZE_COMMON_KAFKA_BROKERS.split(",")
 });
 
 const producer = kafka.producer();
-const consumer = kafka.consumer({ groupId: process.env.AIEZE_KAFKA_CONSUMER_GROUP_ID });
+const consumer = kafka.consumer({ groupId: process.env.AIEZE_COMMON_KAFKA_CONSUMER_GROUP_ID });
 
 
-if (AIEZE_KAFKA_ENABLE_PRODUCER) producer.connect()
-if (AIEZE_KAFKA_ENABLE_CONSUMER) consumer.connect()
+if (AIEZE_COMMON_KAFKA_ENABLE_PRODUCER) producer.connect()
+if (AIEZE_COMMON_KAFKA_ENABLE_CONSUMER) consumer.connect()
 
 
 async function subscribe(topic, partition = 0) {
