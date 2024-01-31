@@ -2,7 +2,6 @@ var winston = require("winston");
 const { format } = require("winston");
 const { combine, timestamp, label, printf } = format;
 
-
 const tsFormat = () =>
     moment()
         .utcOffset("330")

@@ -4,7 +4,7 @@ let logger = require('../config/logger'),
 let isRedisConnectionRequired = process.env.AIEZE_COMMON_REDIS_REQUIRED
 
 
-if (isRedisConnectionRequired === "true") {
+if (isRedisConnectionRequired) {
     let baseConnectionURI = process.env.AIEZE_COMMON_REDIS_TLS ? "rediss://" : "redis://";
     
     if (process.env.AIEZE_COMMON_REDIS_USER && process.env.AIEZE_COMMON_REDIS_PASSWORD) {
