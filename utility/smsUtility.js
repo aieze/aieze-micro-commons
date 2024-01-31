@@ -1,10 +1,10 @@
 const axios = require('axios');
 const LOGGER = require('../config/logger');
-let entityId = process.env.VC_DLT_ENTITY_ID;
-let senderId = process.env.VC_DLT_SENDER_ID;
-let userId = process.env.VC_SMS_GATEWAY_USER_ID;
-let password = process.env.VC_SMS_GATEWAY_PASSWORD;
-let smsGatewayUrl = process.env.VC_SMS_GATEWAY_BASE_URL;
+let entityId = process.env.AIEZE_DLT_ENTITY_ID;
+let senderId = process.env.AIEZE_DLT_SENDER_ID;
+let userId = process.env.AIEZE_SMS_GATEWAY_USER_ID;
+let password = process.env.AIEZE_SMS_GATEWAY_PASSWORD;
+let smsGatewayUrl = process.env.AIEZE_SMS_GATEWAY_BASE_URL;
 
 const sendSMS = async(templateId, mobileNo, compiledSMSText) => {
     return new Promise(async (resolve, reject) => {
