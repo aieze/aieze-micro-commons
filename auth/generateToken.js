@@ -9,6 +9,7 @@ const generate = async (userName, payload, tokenExpiry, tokenSecret, req) => {
 
     const userArray = {
         ...payload,
+        user_name: userName,
         ua: req.headers["user-agent"],
         date_modified: new Date()
     };
