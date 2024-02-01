@@ -12,7 +12,7 @@ It can be installed wherever needed.
 To use this commons service in your respective micro service you just need to run below command
 
 ```
-npm i https://gitlab.aieze.in/aieze-public-products/aieze-micro-commons.git
+npm i git+https://gitlab.aieze.in/aieze-public-products/aieze-micro-commons.git
 
 ```
 
