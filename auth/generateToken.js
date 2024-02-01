@@ -19,7 +19,7 @@ const generate = async (userName, payload, tokenExpiry, tokenSecret, req) => {
         plain: userArray
     };
 
-    redis.SetRedis(user_name, token, tokenExpiry * 60 * 60).catch(err => { console.error(err) })
+    redis.SetRedis(userName, token, tokenExpiry * 60 * 60).catch(err => { console.error(err) })
     return build;
 };
 
