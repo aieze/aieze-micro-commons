@@ -6,11 +6,9 @@ const authorization = (AUTH) => {
     return async(req, res, next) => {
         const url = req._parsedUrl.pathname;
         const urlExist = Object.keys(match(url, AUTH.API.PUBLIC.map(parse))).length;
-        const publicVCUrlExist = Object.keys(match(url, AUTH.API.PUBLIC_VC.map(parse))).length;
         const isAuthApi = urlExist == 0 ? false : true;
-        const isPublicVCApi = publicVCUrlExist == 0 ? false : true;
 
-        if (isAuthApi || isPublicVCApi) return next();
+        if (isAuthApi) return next();
         let found = false;
 
         if (req.plainToken) {
