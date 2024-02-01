@@ -28,11 +28,11 @@ Once you run above command, it will be added into your dependencies in package.j
 For using redis you need to add following environment variables in your service
 
 ```
-AIEZE_COMMON_REDIS_REQUIRED=true // set false if redis is not required
-AIEZE_COMMON_REDIS_HOST=localhost // replace with appropriate host
-AIEZE_COMMON_REDIS_PORT=6379 // replace with appropriate port
-AIEZE_COMMON_REDIS_USER="" // replace with appropriate user
-AIEZE_COMMON_REDIS_PASSWORD="" // replace with appropriate password
+"AIEZE_COMMON_REDIS_REQUIRED":true, // set false if redis is not required
+"AIEZE_COMMON_REDIS_HOST":"localhost", // replace with appropriate host
+"AIEZE_COMMON_REDIS_PORT":6379, // replace with appropriate port
+"AIEZE_COMMON_REDIS_USER":"", // replace with appropriate user
+"AIEZE_COMMON_REDIS_PASSWORD":"", // replace with appropriate password
 
 ```
 
@@ -41,60 +41,211 @@ After adding above environment variables in package.json, now you able to use re
 
 ## How to use postgresSql 
 
-Use the built-in continuous integration in GitLab.
+For using postgresSql you need to add following environment variables in your service
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+```
+    "AIEZE_COMMON_PG_DB_REQUIRED": true, // set false if redis is not required
+    "AIEZE_COMMON_MASTER_USER": "root", // replace with appropriate pg user name
+    "AIEZE_COMMON_MASTER_DATABASE": "communication_services", // replace with appropriate db name
+    "AIEZE_COMMON_MASTER_PASSWORD": "password", //replace with appropriate db password
+    "AIEZE_COMMON_MASTER_HOST": "localhost", // replace with appropriate pg host
+    "AIEZE_COMMON_MASTER_PORT": 5432, // replace with appropriate pg port
 
-***
+```
 
-# Editing this README
+After adding above environment variables in package.json, now you able to use postgresSql.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## How to use MongoDB
 
-## Suggestions for a good README
+For using MongoDB you need to add following environment variables in your service
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+```
+    "AIEZE_COMMON_NOSQL_HOST": "127.0.0.1", // replace with appropriate host
+    "AIEZE_COMMON_NOSQL_PORT": "27017", // replace with appropriate port
+    "AIEZE_COMMON_NOSQL_DATABASE": "vc",  // replace with appropriate db name
+    "AIEZE_COMMON_NOSQL_AUTH_DATABASE": "",  // replace with appropriate auth db name
+    "AIEZE_COMMON_NOSQL_USER": "",  // replace with appropriate user
+    "AIEZE_COMMON_NOSQL_PASSWORD": "",  // replace with appropriate password
+    "AIEZE_COMMON_NOSQL_DB_REQUIRED": true,  // set false with mongo db is not required
 
-## Name
-Choose a self-explaining name for your project.
+```
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+After adding above environment variables in package.json, now you able to use MongoDB.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## How to use Email Utility
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+For using Email Utility you need to add following environment variables in your service
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+```
+    "AIEZE_COMMON_FROM_EMAIL": "no-reply@aieze.in",
+    "AIEZE_COMMON_EMAIL_API_KEY": "e5718d5d180925b97404b932a5ab2b79",
+    "AIEZE_COMMON_EMAIL_GATEWAY_BASE_URL": "https://emailapi.netcorecloud.net/v5/mail/send",
+    "CONTACT_US_EMAIL": "sud5868@gmail.com", // this values only for testing purpose. for production these values will be replaced
+    "CONTACT_US_EMAIL_CC": "ck@aieze.in", // this values only for testing purpose. for production these values will be replaced
+    "CONTACT_US_EMAIL_BCC": "sudhir.kumarrao@aieze.in,narsima.chilkuri@aieze.in" // this values only for testing purpose. for production these values will be replaced
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+```
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+After adding above environment variables in package.json, now you able to use Email Utility.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+```
+    Step 1: Import email utility in your respective micro service
+    const { emailUtility } = require("aieze-micro-commons");
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+    Step 2: Following code is for sending email with or without attachment
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+    const emailContactData = async (data, fileData) => {
+        try {
 
-## License
-For open source projects, say how it is licensed.
+            const renderData = {
+                data
+            }
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+            const subject = `${data.name} | ${data.phone} | AIEZE Enquiry`;
+            const emailHtml = await generateHtmlFromEjs(renderData, 'views/pages/contactEmail.ejs');
+
+            let cc_mail = process.env.CONTACT_US_EMAIL_CC ? process.env.CONTACT_US_EMAIL_CC.split(',').map(email => ({ email: email.trim() })) : [];
+            let bcc_mail = process.env.CONTACT_US_EMAIL_BCC ? process.env.CONTACT_US_EMAIL_BCC.split(',').map(email => ({ email: email.trim() })) : [];
+
+            if(fileData){
+                const fileName = fileData.originalname;
+                const content = fileData.buffer;
+                const contentType = fileData.mimetype;
+
+                // If you have an attachment
+                await sendEmail([{ email: process.env.CONTACT_US_EMAIL }], cc_mail, bcc_mail, subject, emailHtml, [{
+                    'filename': fileName,
+                    'content': content,
+                    'contentType': contentType
+                }])
+
+            } else {
+                // If you don't have an attachment
+                await sendEmail([{ email: process.env.CONTACT_US_EMAIL }], cc_mail, bcc_mail, subject, emailHtml, [])        
+            }
+            
+            return;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+
+
+
+
+```
+
+
+## How to use SMS Utility
+
+For using SMS Utility you need to add following environment variables in your service
+
+```
+    "AIEZE_COMMON_SMS_GATEWAY_BASE_URL": "http://nimbusit.biz/api/SmsApi/SendSingleApi",
+    "AIEZE_COMMON_SMS_GATEWAY_PASSWORD": "dpig2349DP",
+    "AIEZE_COMMON_SMS_GATEWAY_USER_ID": "aiezebiz",
+    "AIEZE_COMMON_DLT_SENDER_ID": "AIEZEH",
+    "AIEZE_COMMON_DLT_ENTITY_ID": "1501407030000013858",
+
+```
+
+After adding above environment variables in package.json, now you able to use SMS Utility.
+
+```
+    Step 1: Import SMS utility into your respective service
+    const { SMSutility } = require("aieze-micro-common");
+
+    Step 2: Following code is for sending SMS
+    const sendOTP = async (otpData) => {
+        try {
+            let phone_no = `${otpData.dial_code} ${otpData.mobile_no}`;
+            let time = CONST.SMS_TEMPLATES.otpLogin.time;
+            let message = CONST.SMS_TEMPLATES.otpLogin.body.replace('<otp>', otpData.otp).replace('<time>', time);
+            await SMSutility.sendSMS(CONST.SMS_TEMPLATES.otpLogin.template_id, otpData.mobile_no, message);
+            return true
+        } catch (error) {
+            throw error;
+        }
+    }
+```
+
+
+## How to use Whatsapp Utility
+
+For using Whatsapp Utility you need to add following environment variables in your service
+
+```
+    "AIEZE_COMMON_WHATSAPP_GATEWAY_BASE_URL": "https://api.pinbot.ai/v2/wamessage/sendMessage",
+    "AIEZE_COMMON_WHATSAPP_GATEWAY_API_KEY": "4808679a-7a41-11ee-b22d-92672d2d0c2d",
+    "AIEZE_COMMON_WHATSAPP_GATEWAY_FROM_MOBILE_NUMBER": "917303544301",
+
+```
+
+After adding above environment variables in package.json, now you able to use Whatsapp Utility.
+
+```
+    Step 1: Import Whatsapp utility into your respective service
+    const { WHATSAPPutility } = require("aieze-micro-common");
+
+    Step 2: Following code is for sending Whatsapp message
+    authService.sendOTP = async (otpData) => {
+        try {
+            let phone_no = `${otpData.dial_code} ${otpData.mobile_no}`;
+            const placeholders = [otpData.otp, CONST.WHATSAPP_TEMPLATES.otpLogin.time];
+            await WHATSAPPutility.sendWhatsappSms(CONST.WHATSAPP_TEMPLATES.otpLogin.template_id, otpData.mobile_no, placeholders)
+            return true
+        } catch (error) {
+            throw error;
+        }
+    }
+```
+
+
+## How to use S3 Utility
+
+For using S3 Utility you need to add following environment variables in your service
+
+```
+    "DIGITAL_OCEAN_ACCESS_KEY_ID": "DO00YY4RMUJCNJJAV3Q4",
+    "DIGITAL_OCEAN_SECRET_ACCESS_KEY": "DUwzOivxHjFbnDBIdUZDERN2P3Ass7mCYW1JhVzJRJg",
+    "DIGITAL_OCEAN_SPACES_ENDPOINT": "https://blr1.digitaloceanspaces.com",
+    "DIGITAL_OCEAN_SPACE": "link-prod-beta",
+
+```
+
+After adding above environment variables in package.json, now you able to use S3 Utility.
+
+```
+    Step 1: Import Whatsapp utility into your respective service
+    const { s3Util } = require("aieze-micro-common");
+
+    const params = {
+        Bucket: process.env.DIGITAL_OCEAN_SPACE,
+        Key: `link-users/profile-pictures/${fileData.file_name}`,
+        Body: req.files.file.data
+    };
+
+        /*
+        * 1st param file name
+        * 2nd param file body
+        * 3rd param bucket name
+        * 4th param content type
+        * 5th param publicRead - set true if you want to make this object publicly accessible using CDN
+        */
+        s3Util.uploadFile(params.key, params.Body, params.Bucket, false, false, async function (error, data) {
+            if (error) {
+                res.status(STATUS.INTERNAL_SERVER_ERROR).send(error);
+            } else {
+                await mongoDB.upsertOne(
+                MONGO_COLLECTIONS.LINK_USERS,
+                { user_id: userResult.user_id },
+                { profile_pic: data.Location }
+                );
+                redis.del(key);
+                res.status(STATUS.OK).send({ message: "Image uploaded successfully" });
+            }
+        });
+```
