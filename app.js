@@ -16,6 +16,11 @@ const s3Util = require('./utility/s3.util');
 const html_to_pdf = require('./config/html-to-pdf');
 const velocity = require('./config/velocity');
 
+const generateToken = require("./auth/generateToken");
+const SECURITY = require("./auth/secure");
+const FINGERPRINT = require('./auth/fingerprint');
+
+
 module.exports = {
     mysql,
     mongoDB,
@@ -31,6 +36,9 @@ module.exports = {
     smsUtility,
     velocity,
     whatsappUtility,
-    emailUtility
+    emailUtility,
+    generateToken,
+    SECURITY,
+    FINGERPRINT
 }
 
