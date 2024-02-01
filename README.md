@@ -2,37 +2,44 @@
 
 
 
-## Getting started
+## Problem Statement
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+In every project we are using commons service. To avoid creating same service in every project created this aieze-micro-commons repo so that
+It can be installed wherever needed.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## How to use
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+To use this commons service in your respective micro service you just need to run below command
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.aieze.in/aieze-public-products/aieze-micro-commons.git
-git branch -M main
-git push -uf origin main
+npm i https://gitlab.aieze.in/aieze-public-products/aieze-micro-commons.git
+
 ```
 
-## Integrate with your tools
+Once you run above command, it will be added into your dependencies in package.json. Now you can use the comman functions
 
-- [ ] [Set up project integrations](https://gitlab.aieze.in/aieze-public-products/aieze-micro-commons/-/settings/integrations)
+## What are the changes in this approach
 
-## Collaborate with your team
+- Environment variables will be prefixed with *AIEZE_COMMON_*
+- In *aieze-micro-commons* we have to add only common configurations and functions. No project specific code will be kept here
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+## How to use redis 
 
-## Test and Deploy
+For using redis you need to add following environment variables in your service
+
+```
+AIEZE_COMMON_REDIS_REQUIRED=true // set false if redis is not required
+AIEZE_COMMON_REDIS_HOST=localhost // replace with appropriate host
+AIEZE_COMMON_REDIS_PORT=6379 // replace with appropriate port
+AIEZE_COMMON_REDIS_USER="" // replace with appropriate user
+AIEZE_COMMON_REDIS_PASSWORD="" // replace with appropriate password
+
+```
+
+After adding above environment variables in package.json, now you able to use redis.
+
+
+## How to use postgresSql 
 
 Use the built-in continuous integration in GitLab.
 
