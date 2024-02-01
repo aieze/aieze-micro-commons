@@ -17,18 +17,7 @@ const authentication = (AUTH) => {
 
         req.plainToken = null;
         try {
-
-            if (isPublicVCApi) {
-
-                if (token) {
-                    var decoded = jwt.verify(token, AUTH.SECRET_KEY);
-                } else {
-                    return next();
-                }
-
-            } else {
-                var decoded = jwt.verify(token, AUTH.SECRET_KEY);
-            }
+            var decoded = jwt.verify(token, AUTH.SECRET_KEY);
 
             req.plainToken = decoded;
             let isUserValid = await redis.GetKeyRedis(req.plainToken.user_name);
