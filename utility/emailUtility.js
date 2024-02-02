@@ -1,8 +1,8 @@
 const axios = require('axios');
 const LOGGER = require('../config/logger');
-let fromEmailId = process.env.AIEZE_FROM_EMAIL;
-let emailAPIKey = process.env.AIEZE_EMAIL_API_KEY;
-let emailGatewayUrl = process.env.AIEZE_EMAIL_GATEWAY_BASE_URL;
+let fromEmailId = process.env.AIEZE_COMMON_FROM_EMAIL;
+let emailAPIKey = process.env.AIEZE_COMMON_EMAIL_API_KEY;
+let emailGatewayUrl = process.env.AIEZE_COMMON_EMAIL_GATEWAY_BASE_URL;
 
 const sendEmail = async(to=[], cc=[], bcc=[], subject, body, attachments=[]) => {
     return new Promise(async (resolve, reject) => {
