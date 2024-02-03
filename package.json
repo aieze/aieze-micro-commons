@@ -18,7 +18,6 @@
     "dateformat": "^3.0.3",
     "express-fingerprint": "^1.2.2",
     "express-sanitize-middleware": "^1.0.3",
-    "file-type": "^19.0.0",
     "html-pdf": "^3.0.1",
     "ioredis": "^4.27.3",
     "joi": "^14.3.1",
