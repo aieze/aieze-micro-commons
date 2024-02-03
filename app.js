@@ -19,6 +19,7 @@ const velocity = require('./config/velocity');
 const generateToken = require("./auth/generateToken");
 const SECURITY = require("./auth/secure");
 const FINGERPRINT = require('./auth/fingerprint');
+const minioUtility = require('./utility/minioUtility');
 
 
 module.exports = {
@@ -39,6 +40,7 @@ module.exports = {
     emailUtility,
     generateToken,
     SECURITY,
-    FINGERPRINT
+    FINGERPRINT,
+    minioUtility
 }
 
