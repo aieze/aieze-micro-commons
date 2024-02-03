@@ -1,5 +1,6 @@
 const Minio = require('minio');
 const util = require('util');
+const {fileTypeFromBuffer, fileTypeFromStream} = require('file-type');
 
 // Initialize MinIO client with your server details
 const minioClient = new Minio.Client({
@@ -16,7 +17,7 @@ const getObject = async(bucketName, objectName) => {
     return new Promise(async(resolve, reject) => {
         try {
             const dataStream = await minioClient.getObject(bucketName, objectName);
-            
+            const fileType = await fileTypeFromStream(dataStream);
             const chunks = [];
             
             dataStream.on('data', (chunk) => {
@@ -25,7 +26,11 @@ const getObject = async(bucketName, objectName) => {
             
             dataStream.on('end', () => {
                 const buffer = Buffer.concat(chunks);
-                resolve(buffer);
+                
+                resolve({
+                    data: buffer,
+                    metadata: fileType
+                });
             });
             
             dataStream.on('error', (err) => {
