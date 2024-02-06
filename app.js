@@ -20,6 +20,7 @@ const generateToken = require("./auth/generateToken");
 const SECURITY = require("./auth/secure");
 const FINGERPRINT = require('./auth/fingerprint');
 const minioUtility = require('./utility/minioUtility');
+const URLShortnerUtility = require('./utility/URLShortnerUtility');
 
 
 module.exports = {
@@ -41,6 +42,7 @@ module.exports = {
     generateToken,
     SECURITY,
     FINGERPRINT,
-    minioUtility
+    minioUtility,
+    URLShortnerUtility
 }
 
