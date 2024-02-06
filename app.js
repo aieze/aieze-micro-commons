@@ -21,6 +21,7 @@ const SECURITY = require("./auth/secure");
 const FINGERPRINT = require('./auth/fingerprint');
 const minioUtility = require('./utility/minioUtility');
 const URLShortnerUtility = require('./utility/URLShortnerUtility');
+const MONGO_COLLECTIONS = require('./constants/MongoCollections');
 
 
 module.exports = {
@@ -43,6 +44,7 @@ module.exports = {
     SECURITY,
     FINGERPRINT,
     minioUtility,
-    URLShortnerUtility
+    URLShortnerUtility,
+    MONGO_COLLECTIONS
 }
 
